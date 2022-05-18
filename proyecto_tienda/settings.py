@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'proyecto_tienda.wsgi.application'
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
 
-IN_DEVELOPMENT = True
+IN_DEVELOPMENT = False
 
 if IN_DEVELOPMENT:
     DEBUG = True
