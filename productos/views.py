@@ -1,4 +1,5 @@
 from email import message
+from tkinter.messagebox import NO
 from unicodedata import category
 from rest_framework import generics 
 from rest_framework import status
@@ -95,4 +96,6 @@ class CategoriaDestroyApiView(generics.DestroyAPIView):
     serializer_class = CategoriaSerializer
     permission_classes = [IsAuthenticated, IsAdminUser]
     def get_queryset(self):
+        if Producto.objects.filter(categoria__id = self.kwargs['pk']).exists():
+            return None
         return self.get_serializer().Meta.model.objects.filter(id = self.kwargs['pk'])
